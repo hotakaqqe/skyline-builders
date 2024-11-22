@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline Builders</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Skyline Builders</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About Us</a>
+            <a href="#projects">Our Projects</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        <img src="/Users/lopotisha/Documents/2f458383144701.5d3346fba2f0f.png" alt="Company Logo" class="logo-image" />
+    </nav>
+    
+    <header id="hero">
+        <video autoplay muted loop playsinline id="background-video">
+            <source src="/Users/lopotisha/Documents/1197802-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Building Your Future</h1>
+            <p>Your trusted construction partner.</p>
+            <button id="explore">Explore Projects</button>
+        </div>
+    </header>
+    
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Skyline Builders is a trusted leader in the construction industry, with over 15 years of experience delivering high-quality projects across residential, commercial, and industrial sectors. Our mission is to provide innovative and sustainable construction solutions that meet the evolving needs of our clients.
+
+            We pride ourselves on our commitment to excellence, attention to detail, and dedication to creating spaces that enhance the lives of those who inhabit them. From modern high-rise buildings to commercial complexes, our team is passionate about delivering results that exceed expectations.
+            
+            At Skyline Builders, we combine cutting-edge technology, environmental responsibility, and expert craftsmanship to build not just structures, but lasting landmarks. Our portfolio of completed and ongoing projects is a testament to our expertise and unwavering focus on quality.
+            
+            </p>
+    </section>
+
+    <section id="projects">
+        <h2>Our Projects</h2>
+        <div class="project-gallery">
+            <div class="project-card" data-project="1">
+                <img src="/Users/lopotisha/Documents/project1.png" alt="Project 1">
+                <h3>Project 1</h3>
+            </div>
+            <div class="project-card" data-project="2">
+                <img src="/Users/lopotisha/Documents/project2.png" alt="Project 2">
+                <h3>Project 2</h3>
+            </div>
+            <div class="project-card" data-project="3">
+                <img src="/Users/lopotisha/Documents/project3.png" alt="Project 3">
+                <h3>Project 3</h3>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+            <h3>Project 1</h3>
+            <img src="/Users/lopotisha/Documents/project1.png" alt="Project 1">
+            <p>Our High-rise Residential Building is a landmark project that combines luxury and functionality. With stunning city views, spacious apartments, and modern amenities, it offers a comfortable and upscale living experience. The building features state-of-the-art facilities, including a fitness center, rooftop garden, and 24/7 security. Its sleek, contemporary design and energy-efficient systems make it a perfect choice for those seeking a sophisticated urban lifestyle.
+            </p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+            <h3>Project 2</h3>
+            <img src="/Users/lopotisha/Documents/project2.png" alt="Project 2">
+            <p>This modern commercial office space, located in a prime business district, offers a flexible layout with open-plan areas, private offices, and meeting rooms. It features large windows for natural light, high-speed internet, state-of-the-art HVAC, and on-site parking. With 24/7 security and easy access to transportation, it's the perfect environment for businesses to thrive.
+            </p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+            <h3>Project 3</h3>
+            <img src="/Users/lopotisha/Documents/project3.png" alt="Project 3">
+            <p>Our Luxury Apartment Complex offers a blend of modern design and exceptional comfort. Located in the city's prime area, each apartment features spacious, open-plan interiors with stunning floor-to-ceiling windows and panoramic views. Residents enjoy top-tier amenities such as a rooftop pool, fitness center, and spa, all designed for a luxurious lifestyle. With an emphasis on sustainability, the complex uses energy-efficient systems and eco-friendly materials, creating the perfect balance of elegance and functionality.
+            </p>
+        </div>
+    </div>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="confirmation-message" class="hidden">Message Sent!</div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Skyline Builders. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- java script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectId = card.dataset.project;
+                    const modal = document.getElementById(`modal${projectId}`);
+                    modal.style.display = 'flex';  
+                });
+            });
+
+            window.closeModal = function(modalId) {
+                const modal = document.getElementById(modalId);
+                modal.style.display = 'none'; 
+            }
+        });
+    </script>
+</body>
+</html>
